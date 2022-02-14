@@ -1,6 +1,6 @@
 # BLE WiFi Setup Manager Library
 ## About
-This library enables a particle Argon and a web browser (Chrome, Android, Opera) to communicate
+This library enables bluetooth comms between a particle Argon/Boron and a web browser (Chrome, Android, Opera)
 1. Exposes and advertises a custom BLE service for general Commuincations
 2. Provides a simple JSON-based communication interface
 
