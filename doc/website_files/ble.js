@@ -1,54 +1,11 @@
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>BLE Web JSON comms</title>
-        <style>
-        div, h1, h2, h3 {
-            font-family: Helvetica, Arial, sans-serif, serif;
-        };
-        </style>
-    </head>
-    <body>
-        <form id="form_connect"> <input id="connect_btn" type="submit" value="Connect to Argon"> </form>
-        <form id="form_sendMessage"> <input id="sendMessage" type="submit" value="sendMessage"> <input size=64 id=messageText></form>
-
-        <div style="font-size: 50px">Particle BLE Comms</div>
-
-        <h3>Log</h3>
-        <div id="output" class="output" style="border:1px">
-            <pre id="log"></pre>
-        </div> 
-
-
-        <script>
-
-        var messageNumber = 0;
-
-        var Logger = {
-            log: function() {
-                var line = Array.prototype.slice.call(arguments).map(function(argument) {
-                    return typeof argument === 'string' ? argument : JSON.stringify(argument);
-                }).join(' ');
-
-                document.querySelector('#log').textContent = '> ' + line + '\n' + document.querySelector('#log').textContent;
-            },
-
-            clearLog: function() {
-                document.querySelector('#log').textContent = '';
-            },
-        };
-
-
+        var encoder = new TextEncoder();
         var particle_ble_device = null;    // BLE connection instance
-
         const uuid_wifi_config_service = 'b4ad5b8d-d2db-44d6-9d35-5d43b9e5060c';
         const uuid_wifi_config_tx      = '3c673f3a-382a-4835-8433-c1c1b6b65346';
         const uuid_wifi_config_rx      = '226285d5-7a5a-448d-8317-dae1fd2d6c36';
 
-        var encoder = new TextEncoder();
+        var messageNumber = 0;
 
 	function setUpRx() {
             if (particle_ble_device) {
@@ -171,39 +128,41 @@
             document.getElementById('connect_btn').value = "Connect to Argon";
         }
 
-        // Connect to Argon button handler
-        document.querySelector('#form_connect').addEventListener('submit', function(event) {
-            event.stopPropagation();
-            event.preventDefault();
+	document.addEventListener("DOMContentLoaded", function(event) {
+                // wait for the document to load before adding handlers to buttons
 
-            if (navigator.bluetooth) {
-                if (particle_ble_device) {
-                    // Disconnect
-                    onDisconnectButtonClick();
-                } else {
-                    // Connect
-                    Logger.clearLog();
-                    onConnectButtonClick();
-                }
-            } else {
-                Logger.log('Error: Web Bluetooth API is not available. Please make sure the "Experimental Web Platform features" flag is enabled.');
-            }
-        });
+		// Connect to Argon button handler
+		document.querySelector('#form_connect').addEventListener('submit', function(event) {
+		    event.stopPropagation();
+		    event.preventDefault();
 
-        // Connect to Argon button handler
-        document.querySelector('#form_sendMessage').addEventListener('submit', function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            try {
-		let messageToSend = document.getElementById('messageText').value;
-                sendMessageToDevice( messageToSend  );
-		messageNumber++;
-            } catch (error) {
-                Logger.log('Failed to send message ' + error);
-            }
-        });
+		    if (navigator.bluetooth) {
+			if (particle_ble_device) {
+			    // Disconnect
+			    onDisconnectButtonClick();
+			} else {
+			    // Connect
+			    Logger.clearLog();
+			    onConnectButtonClick();
+			}
+		    } else {
+			Logger.log('Error: Web Bluetooth API is not available. ' +
+				   'Please make sure the "Experimental Web Platform features" flag is enabled.');
+		    }
+		});
 
-        </script>
-    </body>
-</html>
-  
+		// send message to argon handler button handler
+		document.querySelector('#form_sendMessage').addEventListener('submit', function(event) {
+		    event.stopPropagation();
+		    event.preventDefault();
+		    try {
+			let messageToSend = document.getElementById('messageText').value;
+			sendMessageToDevice( messageToSend  );
+			messageNumber++;
+		    } catch (error) {
+			Logger.log('Failed to send message ' + error);
+		    }
+		});
+
+	});
+

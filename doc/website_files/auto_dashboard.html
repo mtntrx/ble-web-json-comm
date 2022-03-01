@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Auto Populated Dashboard for BLE-json Comms</title>
+	<link rel="stylesheet" href="auto_dashboard.css">
+	<script src="auto_dashboard.js"></script>
+	<script src="ble.js"></script>
+    </head>
+    <body>
+	<div id="masterDivId"></div>
+        <form id="form_connect"> <input id="connect_btn" type="submit" value="Connect to Argon"> </form>
+        <form id="form_sendMessage"> <input id="sendMessage" type="submit" value="sendMessage"> <input size=64 id=messageText></form>
+        <div id="output" class="output" style="border:1px"> 
+		<pre id="log"></pre> 
+	</div> 
+    </body>
+</html>
