@@ -13,6 +13,8 @@
             },
         };
 
+	// takes any valid JSON string and sends all key-value pairs to the screen 
+	// (inside the div with id:  "masterDivId"
 	function parseAndDisplay( jsonString ) { 
 	  	console.log("parseAndDisplay");
                 var obj = JSON.parse(jsonString);
@@ -48,9 +50,10 @@
 	}
 
 	
-	setTimeout(function(){ parseAndDisplay('{"key1":"100", "key2":"200"}'); }, 1000);
-	setTimeout(function(){ parseAndDisplay('{"key1":"300", "key3":"400"}'); }, 2000);
-	setTimeout(function(){ parseAndDisplay('{"key1":"30", "key3":"20"}'); }, 3000);
-	setTimeout(function(){ parseAndDisplay('{"key2":"75", "key3":"544"}'); }, 4000);
-	setTimeout(function(){ parseAndDisplay('{"key2":"5gy", "key3":"544"}'); }, 4000);
+        // for testing only
+	// setTimeout(function(){ parseAndDisplay('{"key1":"100", "key2":"200"}'); }, 1000);
+	// setTimeout(function(){ parseAndDisplay('{"key1":"300", "key3":"400"}'); }, 2000);
+	// setTimeout(function(){ parseAndDisplay('{"key1":"30", "key3":"20"}'); }, 3000);
+	// setTimeout(function(){ parseAndDisplay('{"key2":"75", "key3":"544"}'); }, 4000);
+	// setTimeout(function(){ parseAndDisplay('{"key2":"5gy", "key3":"544"}'); }, 4000);
 
