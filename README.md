@@ -7,10 +7,9 @@ This library enables a particle Argon and a web browser (Chrome, Android, Opera)
 ## Use
 1. Add this library to your project (Name: `ble-web-json-comm`)
 2. Implement the provided example code
+3. Web-serve 4 files found in doc/website_files
 
-A functional example webpage that can be used for BLE setup, using the Chrome Web Bluetooth standard, can be found [here](https://TBD). This code is easy to implement into your own webpage and white-labelled for customer use. 
-
-**Please note**: the web example _only_ works on Chrome running on a desktop OS (Windows/OSX/Linux), or on Android devices. iOS does not natively support the Web Bluetooth standard (yet), however, there does exist at least one [paid app](https://apps.apple.com/us/app/webble/id1193531073) that exposes the functionality required.
+**Please note**: the web example _only_ works on Chrome running on a desktop OS (Windows/OSX/Linux), or on Android devices. iOS does not natively support the Web Bluetooth standard (yet), however, there does exist at least one paid app "Bluefy"
 
 ## API
 ### BLE Services and Characteristcs

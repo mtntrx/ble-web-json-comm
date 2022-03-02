@@ -36,7 +36,7 @@
 				newKeyValDiv.appendChild(newKeyDiv);
 				newKeyValDiv.appendChild(newValDiv);
 
-				newKeyDiv.classList.add("boxLabel");
+				newKeyDiv.classList.add("headerBars");
 				newValDiv.classList.add("boxValue");
 
 				newKeyDiv.innerHTML = key;
@@ -49,11 +49,13 @@
 
 	}
 
+ 	function randBetween( min, max ) {
+		  return Math.floor(Math.random() * (max - min)) + min + 1;
+	}
+
+
 	
         // for testing only
-	// setTimeout(function(){ parseAndDisplay('{"key1":"100", "key2":"200"}'); }, 1000);
-	// setTimeout(function(){ parseAndDisplay('{"key1":"300", "key3":"400"}'); }, 2000);
-	// setTimeout(function(){ parseAndDisplay('{"key1":"30", "key3":"20"}'); }, 3000);
-	// setTimeout(function(){ parseAndDisplay('{"key2":"75", "key3":"544"}'); }, 4000);
-	// setTimeout(function(){ parseAndDisplay('{"key2":"5gy", "key3":"544"}'); }, 4000);
+	 setInterval(function(){ parseAndDisplay('{"key1":"' + randBetween(0,100) + '", "key2":"' + randBetween(0,100) + '"}'); }, 1000);
+	 setInterval(function(){ parseAndDisplay('{"key1":"' + randBetween(0,100) + '", "key3":"' + randBetween(0,100) + '"}'); }, 2000);
 
