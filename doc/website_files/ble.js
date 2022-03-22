@@ -108,6 +108,7 @@
                 var obj = JSON.parse(result_str);
                 if (obj) {
                         Logger.log(`RX: ${result_str}`);
+                    parseAndDisplay(result_str); 
                 } else {
                         Logger.log("JSON obj empty?");
 		}

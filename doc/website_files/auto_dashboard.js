@@ -56,6 +56,6 @@
 
 	
         // for testing only
-	 setInterval(function(){ parseAndDisplay('{"key1":"' + randBetween(0,100) + '", "key2":"' + randBetween(0,100) + '"}'); }, 1000);
-	 setInterval(function(){ parseAndDisplay('{"key1":"' + randBetween(0,100) + '", "key3":"' + randBetween(0,100) + '"}'); }, 2000);
+	 //setInterval(function(){ parseAndDisplay('{"key1":"' + randBetween(0,100) + '", "key2":"' + randBetween(0,100) + '"}'); }, 1000);
+	 //setInterval(function(){ parseAndDisplay('{"key1":"' + randBetween(0,100) + '", "key3":"' + randBetween(0,100) + '"}'); }, 2000);
 

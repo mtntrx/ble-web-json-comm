@@ -4,7 +4,7 @@
 		border-width: 0px
 	}
 	.headerBars { 
-		font-size: 1.5em;
+		font-size: 0.8em;
 		color: blue;
 		background-color: #BBBBBB;
 		margin-left: 5px;
@@ -13,7 +13,7 @@
 		text-align: center;
 	}
 	.boxLabel { 
-		font-size: 1.5em;
+		font-size: 0.8em;
 		color: blue;
 		background-color: #BBBBBB;
 		margin-left: 5px;
@@ -23,7 +23,7 @@
 	}
 
 	.boxValue { 
-		font-size: 10em;
+		font-size: 2em;
 		color: blue;
 		margin-top: 0px;
 		background-color: #EEEEEE;
