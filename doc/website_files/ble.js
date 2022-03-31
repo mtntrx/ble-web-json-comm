@@ -40,7 +40,7 @@
                     Logger.log('Argh in setupRX2! ' + error);
                 })
             } else {
-                Logger.log('Not connected to Argon!');
+                Logger.log('Not connected to Argon/Boron!');
             }
         }
 
@@ -61,7 +61,7 @@
                 })
 
             } else {
-                Logger.log('Cant sendMessageToDevice; Not connected to Argon!');
+                Logger.log('Cant sendMessageToDevice; Not connected to Argon/Boron!');
             }
         }
 
@@ -85,7 +85,7 @@
                 Logger.log('Connected!');
                 Logger.log('Setting up Rx');
 		setUpRx();
-                document.getElementById('connect_btn').value = "Disconnect from Argon";
+                document.getElementById('connect_btn').value = "Disconnect from Argon/Boron";
             })
             .catch(error => {
                 Logger.log('Argh on connect button click! ' + error);
@@ -126,13 +126,13 @@
         }
 
         function resetUI() {
-            document.getElementById('connect_btn').value = "Connect to Argon";
+            document.getElementById('connect_btn').value = "Connect to Argon/Boron";
         }
 
 	document.addEventListener("DOMContentLoaded", function(event) {
                 // wait for the document to load before adding handlers to buttons
 
-		// Connect to Argon button handler
+		// Connect to Argon/Boron button handler
 		document.querySelector('#form_connect').addEventListener('submit', function(event) {
 		    event.stopPropagation();
 		    event.preventDefault();

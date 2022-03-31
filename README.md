@@ -1,15 +1,15 @@
 # BLE WiFi Setup Manager Library
 ## About
-This library enables a particle Argon and a web browser (Chrome, Android, Opera) to communicate
+This library enables a particle Argon/Boron and a web browser (Chrome, Android, Opera) to communicate
 1. Exposes and advertises a custom BLE service for general Commuincations
 2. Provides a simple JSON-based communication interface
 
 ## Use
 1. Add this library to your project (Name: `ble-web-json-comm`)
-2. Implement the provided example code
-3. Web-serve 4 files found in doc/website_files
+2. Use the `main.ino` (in the examples folder) as your firmware, or leverage it for your custom firmware
+3. Visit the simple web app currently hosted [here](https://smartcoolstuff.com/agaware/ble.html)  (source is in DOC folder)
 
-**Please note**: the web example _only_ works on Chrome running on a desktop OS (Windows/OSX/Linux), or on Android devices. iOS does not natively support the Web Bluetooth standard (yet), however, there does exist at least one paid app "Bluefy"
+**Please note**: the web example _only_ works on Chrome running on a desktop OS (Windows/OSX/Linux), or on Android devices. iOS does not natively support the Web Bluetooth standard (yet), however, there does exist at least one app, try "Bluefy"
 
 ## API
 ### BLE Services and Characteristcs
