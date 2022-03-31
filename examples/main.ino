@@ -1,16 +1,10 @@
-// EXAMPLE - Device OS 3.0 and later
+// EXAMPLE - Device OS 3.0 and later,  Argon/Boron only
 #include "ble_web_json_comm.h"
 
 #define MESSAGE_SEND_TIMEOUT 7000
 #define MESSAGE_CHECK_TIMEOUT 50
 
-
-//SerialLogHandler logHandler(LOG_LEVEL_ALL, {
- //   {"app", LOG_LEVEL_ERROR},
-  //  {"system.ctrl.ble", LOG_LEVEL_ERROR},
-   // {"wiring.ble", LOG_LEVEL_ERROR},
-//});
-
+// the communicatoin object
 BLEWebJsonComm bleWeb;
 
 unsigned long messageSendLast;
@@ -19,11 +13,10 @@ unsigned long messageCheckLast;
 int x=0;
 
 void setup() {
-   // (void)logHandler; // Does nothing, just to eliminate warning for unused variable
     Serial.begin(9600);
     bleWeb.setup();
     pinMode( D7, OUTPUT);
-    digitalWrite( D7, HIGH);
+    digitalWrite( D7, LOW);
 
     messageSendLast = millis();
     messageCheckLast = millis();
@@ -31,13 +24,19 @@ void setup() {
 
 void loop() {
 
+    // send a new message (device->browser) every MESSAGE_SEND_TIMEOUT ms
     if ( millis() - messageSendLast  > MESSAGE_SEND_TIMEOUT ) {
+        digitalWrite( D7, HIGH);
         char myMessage[64];
-        sprintf( myMessage, "{\"rotations\":%d}", x++  );
+        sprintf( myMessage, "{\"increment_value\":%d}", x++  );
+	Serial.printlnf("transmitting message (device->browser): %s", myMessage ) ;
         bleWeb.sendMessage( myMessage );
 	messageSendLast = millis();
+        delay(10);
+        digitalWrite( D7, LOW);
     }
 
+    // check for a new message (browswer->device) every MESSAGE_CHECK_TIMEOUT ms
     if ( millis() - messageCheckLast  > MESSAGE_CHECK_TIMEOUT ) {
 	char bleReceivedMessage[1024];
 	int msgSize = bleWeb.get_message( bleReceivedMessage, 1024);
@@ -46,6 +45,7 @@ void loop() {
 	}
 	messageCheckLast = millis();
     }
+
     delay(10);
 }
 
