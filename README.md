@@ -7,7 +7,7 @@ This library enables a particle Argon/Boron and a web browser (Chrome, Android, 
 ## Use
 1. Add this library to your project (Name: `ble-web-json-comm`)
 2. Use the `main.ino` (in the examples folder) as your firmware, or leverage it for your custom firmware
-3. Visit the simple web app currently hosted [here](https://smartcoolstuff.com/agaware/ble.html)  (source is in DOC folder)
+3. Visit the simple web app currently hosted [here](https://smartcoolstuff.com/agaware/auto)  (source is in DOC folder)
 
 **Please note**: the web example _only_ works on Chrome running on a desktop OS (Windows/OSX/Linux), or on Android devices. iOS does not natively support the Web Bluetooth standard (yet), however, there does exist at least one app, try "Bluefy"
 
